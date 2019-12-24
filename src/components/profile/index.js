@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from '../../logo.svg';
+import profileImage from '../../assets/sheldon.png';
 
 import './styles.css';
 
 const profile = () => {
   return (
     <div className='profile'>
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={profileImage} className="profileImage" alt="profile" />
+      <p className="profileText">Sheldon Cooper</p>
     </div>
   )
 }

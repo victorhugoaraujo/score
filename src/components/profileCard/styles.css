@@ -1,0 +1,36 @@
+.profileCard {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  background-color: #FFF;
+  box-shadow: 1px 2px 10px 0px rgba(0,0,0, 0.4);
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; 
+}
+
+.profileCard .score {
+  font-size: 56px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.profileCard .scoreDescription {
+  border-bottom: 1px solid gray;
+}
+
+.profileCard .scoreDescription p{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.profileCard .showMore{
+ font-weight: 700;
+ color: purple;
+}
+
+.scoreBar {
+
+}
