@@ -1,0 +1,50 @@
+
+.card .cardTitle {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.card h1 {
+  font-size: 14px;
+}
+
+.card .cardText {
+  font-weight: 700;
+  font-size: 12px;
+  text-align: left;
+
+}
+
+.card img {
+  max-width: 120px;
+  max-height: 50px;
+}
+
+.card .cardPrice {
+  text-align: right;
+}
+
+.card .cardPrice .price {
+  margin: 0;
+}
+
+.card .cardPrice small {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 11px;
+}
+
+.card .row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card button {
+  margin: 10px;
+  color: purple;
+  font-weight: 700;
+  font-size: 14px;
+}

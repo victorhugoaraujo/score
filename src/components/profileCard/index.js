@@ -1,10 +1,9 @@
 import React from 'react';
-
 import './styles.css';
 
 const ProfileCard = () => {
   return (
-    <div className="profileCard">
+    <div className="container">
       <p className="score">26</p>
       <div className="scoreDescription"><p>Sua pontuação é baixa</p></div>
       <p className="showMore">Saiba mais</p>
