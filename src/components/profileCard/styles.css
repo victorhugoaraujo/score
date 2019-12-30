@@ -18,5 +18,16 @@
 }
 
 .scoreBar {
+  display: flex;
+  justify-content: space-around;
+}
 
+.bar {
+  content: "";
+  height: 10px;
+  background: linear-gradient(to right, 
+  rgb(223, 99, 32), rgb(221, 189, 75) 32%, #eee 32%, #eee 33%,
+  rgb(221, 189, 75) 33%, rgb(81,167,166) 66%, #eee 66%, #eee 67%,
+  rgb(81,167,166) 67%,  rgb(2,90,101) 100%
+  );
 }

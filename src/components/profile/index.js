@@ -1,13 +1,13 @@
 import React from 'react';
-import profileImage from '../../assets/sheldon.png';
 
 import './styles.css';
 
-const profile = () => {
+const profile = ({profile}) => {
+  console.log(profile)
   return (
     <div className='profile'>
-      <img src={profileImage} className="profileImage" alt="profile" />
-      <p className="profileText">Sheldon Cooper</p>
+      <img src={profile.image} className="profileImage" alt="profile" />
+      <p className="profileText">{profile.name}</p>
     </div>
   )
 }

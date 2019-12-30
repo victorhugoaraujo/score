@@ -1,6 +1,17 @@
 .App {
   text-align: center;
-  background: linear-gradient(to bottom, rgb(255, 60, 0), rgb(255, 166, 0) 32%, #eee 32%);
+}
+
+.backgroundRed {
+  background: linear-gradient(to bottom, rgb(223, 99, 32), rgb(221, 189, 75) 32%, #eee 32%);
+
+}
+
+.backgroundYellow {
+  background: linear-gradient(to bottom, rgb(221, 189, 75), rgb(81,167,166) 32%, #eee 32%);
+}
+.backgroundBlue {
+  background: linear-gradient(to bottom, rgb(81,167,166), rgb(2,90,101) 32%, #eee 32%);
 }
 
 .App p {

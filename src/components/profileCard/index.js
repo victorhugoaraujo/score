@@ -1,13 +1,18 @@
 import React from 'react';
 import './styles.css';
 
-const ProfileCard = () => {
+const ProfileCard = ({profile}) => {
   return (
     <div className="container">
-      <p className="score">26</p>
-      <div className="scoreDescription"><p>Sua pontuação é baixa</p></div>
+      <p className="score">{profile.score}</p>
+      <div className="scoreDescription"><p>Sua pontuação é {profile.scoreDescription}</p></div>
       <p className="showMore">Saiba mais</p>
-      <p className="scoreBar">0 a 30 31 a 60 61 a 100</p>
+      <p className="scoreBar">
+        <span>0 a 30</span>
+        <span> 31 a 60</span>
+        <span>61 a 100</span>
+      </p>
+      <div className="bar"></div>
     </div>
   )
 }
