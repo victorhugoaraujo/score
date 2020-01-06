@@ -1,23 +1,22 @@
 import React from 'react';
 import './styles.css';
-import americanas from '../../assets/americanas.png'
 
-const Card = () => {
+const Card = ({service}) => {
   return (
     <div className="container card">
       <div className="cardTitle">
-        <i>ico</i>
-        <h1>Negocie suas dividas</h1>
+        <i>{service.icon}</i>
+        <h1>{service.title}</h1>
       </div>
-      <p className="cardText">Voce possui uma pendencia com</p>
+      <p className="cardText">{service.text}</p>
       <div className="row">
-        <img src={americanas} className="cardImage" alt="Americanas" />
+        <img src={service.image} className="cardImage" alt="Americanas" />
         <div className="cardPrice">
-          <small>R$ 280,00</small>
-          <p className="price">por R$79,00</p>
+          <small>{service.small}</small>
+          <p className="price">{service.price}</p>
         </div>
       </div>
-      <button className="btn">Negociar agora</button>
+      <button className="btn">{service.btn}</button>
     </div>
   )
 }

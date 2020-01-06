@@ -3,7 +3,6 @@ import React from 'react';
 import './styles.css';
 
 const profile = ({profile}) => {
-  console.log(profile)
   return (
     <div className='profile'>
       <img src={profile.image} className="profileImage" alt="profile" />
