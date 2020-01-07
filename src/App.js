@@ -9,30 +9,40 @@ import Card from './components/card';
 import './App.css';
 
 function App() {
-  async function onLoad(){
-    console.log('onLoad');
-    const response = await api.get('/users', {
-      params: {
-        name: 'Howard Wolowitz',
-      }
-    })
-
-    console.log(response.data.score);
-
-    const service = await api.get('/services', {
-        params: {
-          score: 95,
-        }
-      })
-
-      console.log(service.data);
-    
-    setPessoa(response.data);
-  }
-
+  const [ isLoading, setIsLoading ] = useState(true)
+  const [data, setData] = useState({ person: []})
+  const [service, setService] = useState([]);
+  const [score, setScore] = useState();
+  const [newScore, setNewScore] = useState();
+  const [backgroundColor, setBackgroundColor] = useState('');
+  
+  let match = useRouteMatch({
+    path: "/:id",
+  });
+  
   useEffect(() => {
+    async function onLoad(){
+      const response = await api.get('/users', {
+        params: {
+          tagName: match.params.id,
+        }
+      });
+
+      console.log(response)
+  
+      const result = await api.get('/services', {
+          params: {
+            score: score,
+          }
+        });
+
+        setData({person: [response.data]})
+        setService(result.data);
+        setScore(response.data.score);
+        setIsLoading(false);
+    }
     onLoad();
-  }, [])
+  }, [match.params.id, score])
 
   var DATA = {
     people: [
@@ -113,17 +123,6 @@ function App() {
     ]
   }
 
-  let match = useRouteMatch({
-    path: "/:id",
-  });
-
-  const [pessoa, setPessoa] = useState('');
-  const person = DATA.people.filter(item => item.id === match.params.id);
-  const score = person.map(item => item.score);
-  const [backgroundColor, setBackgroundColor] = useState('');
-  const [service, setService] = useState([]);
-
-
   const handleBackgroundColor = () => {
     if(score <= 30)
         return setBackgroundColor('backgroundRed');
@@ -133,60 +132,73 @@ function App() {
       return setBackgroundColor('backgroundBlue');
   }
 
-  
-
-  // const handleServices = () => {
-  //   console.log('oi');
-  //   let service = '';
-  //   if(score <= 30)
-  //     service = DATA.service.filter(item => item.score <= 30)
-  //     console.log(service);
-  //     return setService(service);
-  //       // return setBackgroundColor('backgroundRed').
-  //   // if(score >= 31 && score <= 60)
-  //   //   return setBackgroundColor('backgroundYellow');
-  //   // else
-  //   //   return setBackgroundColor('backgroundBlue');
-  // }
-
   useEffect(() => {
     handleBackgroundColor();
   })
 
-  // useEffect(() => {
-  //   if(score <= 30)
-  //     return setService(DATA.service.filter(item => item.score <= 30));
-  //   if(score >= 31 && score <= 60)
-  //     return setService(DATA.service.filter(item => item.score >= 30));
-    
-  // }, [DATA.service, score]);
+  async function handleClick () {
+    if(score >= 0 && score <= 100){
+      setNewScore(parseInt(score) + 10);
+      if(newScore >= 100)
+       return setScore(100);
+      setScore(newScore);
+    }
 
-  return (
+    // const response = await api.put('/users', {
+    //   id: data.person.id,
+    //   score: newScore,
+    // });
+    // console.log(response);
+    // updateScore();
+  }
+
+  async function updateScore(){
+    const response = await api.put('/users', {
+      id: data.person.id,
+      score: newScore,
+    });
+  }
+
+  // useEffect(() => {
+  //   async function updateScore(){
+  //     const response = await api.put('/users', {
+  //       id: data.person.id,
+  //       score: newScore,
+  //     });
+  //     console.log(response);
+  //   }
+  //   updateScore();
+  // }, [data.person.id, newScore])
+
+  console.log(service);
+  console.log('score', score);
+ 
+  return isLoading ? <div>Loading</div> : 
     <div className={`App ${backgroundColor}`}>
       <header className="App-header">
-        {person.map(item =>
+        {data.person.map(item =>
         <Profile
-          key={item.name}
+          key={item._id}
           profile={item}
         />
         )}
       </header>
       <section className="content">
-      {person.map(item =>
+      {data.person.map(item =>
         <ProfileCard
           key={item.name}
           profile={item}
         />
         )}
-        {DATA.service.map(item =>
+        {service.map(item =>
           <Card
-          key={item.id}
+          key={item._id}
           service={item}
+          handleClick={handleClick}
           />
         )}
       </section>
     </div>
-  );
 }
 
 export default App;

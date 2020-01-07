@@ -1,22 +1,22 @@
 import React from 'react';
 import './styles.css';
 
-const Card = ({service}) => {
+const Card = ({service, handleClick}) => {
   return (
     <div className="container card">
       <div className="cardTitle">
         <i>{service.icon}</i>
         <h1>{service.title}</h1>
       </div>
-      <p className="cardText">{service.text}</p>
+      <p className="cardText">{service.description}</p>
       <div className="row">
-        <img src={service.image} className="cardImage" alt="Americanas" />
+        <img src={service.image_url} className="cardImage" alt="Americanas" />
         <div className="cardPrice">
-          <small>{service.small}</small>
-          <p className="price">{service.price}</p>
+          <small>{service.value}</small>
+          <p className="price">{service.finalValue}</p>
         </div>
       </div>
-      <button className="btn">{service.btn}</button>
+      <button className="btn" onClick={() => handleClick()}>{service.action}</button>
     </div>
   )
 }

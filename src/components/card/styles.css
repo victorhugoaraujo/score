@@ -43,6 +43,7 @@
 }
 
 .card button {
+  cursor: pointer;
   margin: 10px;
   color: purple;
   font-weight: 700;
