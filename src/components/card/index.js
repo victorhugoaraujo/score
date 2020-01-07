@@ -3,10 +3,10 @@ import './styles.css';
 
 const Card = ({service, handleClick}) => {
   return (
-    <div className="container card">
+    <div className="card">
       <div className="cardTitle">
         <i>{service.icon}</i>
-        <h1>{service.title}</h1>
+        <h1 className={service.tagName === 'negocie' ? 'bgOrange' : 'bgBlue'}>{service.title}</h1>
       </div>
       <p className="cardText">{service.description}</p>
       <div className="row">

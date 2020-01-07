@@ -7,6 +7,43 @@
 
 .card h1 {
   font-size: 14px;
+  margin-top: 0
+}
+
+.bgOrange{
+  color: #b87146;
+}
+
+.bgBlue{
+  color: #25606e;
+}
+
+
+.cardContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 49%;
+  height: auto;
+  background-color: #FFF;
+  box-shadow: 1px 2px 10px 0px rgba(0,0,0, 0.4);
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; 
+  margin-bottom: 30px;
+}
+
+@media (max-width: 580px) {
+  .cardContainer {
+    display: block;
+  }
+  .cardContainer .card {
+      width: 100%;
+    }
 }
 
 .card .cardText {
@@ -30,7 +67,6 @@
 }
 
 .card .cardPrice small {
-  text-decoration: line-through;
   color: gray;
   font-size: 11px;
 }
@@ -48,4 +84,11 @@
   color: purple;
   font-weight: 700;
   font-size: 14px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.card button:hover{
+  color: #8e44ad;
 }
